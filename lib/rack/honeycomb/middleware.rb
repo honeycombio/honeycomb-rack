@@ -1,7 +1,7 @@
 require "libhoney"
 
 module Rack
-  module Honey
+  module Honeycomb
 
     class Middleware
       attr_reader :app
@@ -16,7 +16,7 @@ module Rack
       def initialize(app, options = {})
         @app, @options = app, options
 
-        @honey = Libhoney::Client.new(:writekey => options[:writekey],
+        @honeycomb = Libhoney::Client.new(:writekey => options[:writekey],
                                       :dataset  => options[:dataset],
                                       :api_host => options[:api_host])
       end
@@ -24,13 +24,13 @@ module Rack
       def add_field(ev, field, value)
         ev.add_field(field, value) if value != nil && value != ''
       end
-      
+
       def add_env(ev, env, field)
         add_field(ev, field, env[field])
       end
 
       def call(env)
-        ev = @honey.event
+        ev = @honeycomb.event
         request_started_at = Time.now
         status, headers, response = @app.call(env)
         request_ended_at = Time.now

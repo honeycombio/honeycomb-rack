@@ -3,14 +3,14 @@
 
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "rack/honey/version"
+require "rack/honeycomb/version"
 
 Gem::Specification.new do |spec|
-  spec.name               = 'rack-honey'
-  spec.version            = Rack::Honey::VERSION
+  spec.name               = 'rack-honeycomb'
+  spec.version            = Rack::Honeycomb::VERSION
   spec.date               = "2016-11-17"
 
-  spec.homepage           = 'https://github.com/honeycombio/rack-honey'
+  spec.homepage           = 'https://github.com/honeycombio/rack-honeycomb'
   spec.license            = 'Apache-2.0'
   spec.summary            = 'Rack middleware for logging request data to Honeycomb.'
   spec.description        = 'Rack middleware for logging request data to Honeycomb.'

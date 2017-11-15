@@ -8,10 +8,10 @@ For more information about using Honeycomb, check out our [docs](https://honeyco
 
 ```ruby
 # config/application.rb
-require 'rack/honey'
+require 'rack/honeycomb'
 
 class Application < Rails::Application
-  config.middleware.use Rack::Honey::Middleware, writekey: "<YOUR WRITEKEY HERE>", dataset: "<YOUR DATASET NAME HERE>"
+  config.middleware.use Rack::Honeycomb::Middleware, writekey: "<YOUR WRITEKEY HERE>", dataset: "<YOUR DATASET NAME HERE>"
 end
 ```
 
@@ -20,29 +20,29 @@ end
 ```ruby
 #!/usr/bin/env ruby -rubygems
 require 'sinatra'
-require 'rack/honey'
+require 'rack/honeycomb'
 
-use Rack::Honey::Middleware, writekey: "<YOUR WRITEKEY HERE>", dataset: "<YOUR DATASET NAME HERE>"
+use Rack::Honeycomb::Middleware, writekey: "<YOUR WRITEKEY HERE>", dataset: "<YOUR DATASET NAME HERE>"
 
 get('/hello') { "Hello, world!\n" }
 ```
 
 ## Installation
 
-To install the latest stable release of `rack-honey`, simply:
+To install the latest stable release of `rack-honeycomb`, simply:
 
 ```bash
-$ gem install rack-honey
+$ gem install rack-honeycomb
 ```
 
 or add this to your Gemfile
 
 ```
-gem "rack-honey"
+gem "rack-honeycomb"
 ```
 
 To follow the bleeding edge, it's easy to track the git repo:
 
 ```
-gem "rack-honey", :git => "https://github.com/honeycombio/rack-honey.git"
+gem "rack-honeycomb", :git => "https://github.com/honeycombio/rack-honeycomb.git"
 ```
